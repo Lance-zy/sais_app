@@ -115,7 +115,14 @@ class _InstructorLoginView extends StatelessWidget {
                 width: 140,
                 height: 34,
                 radius: 10,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const InstructorPortalScreen(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 8),
               _filledButton(
@@ -161,6 +168,55 @@ class _InstructorLoginView extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class InstructorPortalScreen extends StatelessWidget {
+  const InstructorPortalScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const navTextStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    );
+
+    return Scaffold(
+      backgroundColor: const Color(0xFFE7E7E7),
+      body: Column(
+        children: [
+          SafeArea(
+            bottom: false,
+            child: Container(
+              width: double.infinity,
+              height: 40,
+              color: const Color(0xFF08079C),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: const [
+                    Text('Transactions', style: navTextStyle),
+                    SizedBox(width: 24),
+                    Text('Reports', style: navTextStyle),
+                    SizedBox(width: 24),
+                    Text('Help', style: navTextStyle),
+                    SizedBox(width: 24),
+                    Text('Logout', style: navTextStyle),
+                    SizedBox(width: 24),
+                    Text('Welcome! Jaybee Bermas', style: navTextStyle),
+                    SizedBox(width: 24),
+                    Text('SIAS Online 3.7.2.16', style: navTextStyle),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const Expanded(child: SizedBox.shrink()),
+        ],
       ),
     );
   }
